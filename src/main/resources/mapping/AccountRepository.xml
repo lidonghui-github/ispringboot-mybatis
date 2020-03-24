@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.southwind.repository.AccountRepository">
+
+
+    <select id="findAll" resultType="com.southwind.entity.Account">
+		SELECT *
+		from account
+	</select>
+    <select id="findById" resultType="com.southwind.entity.Account" parameterType="integer">
+
+		select
+		*
+		from account
+		where id = #{id}
+	</select>
+    <delete id="deleteById" parameterType="integer">
+		delete from account
+		where id = #{id}
+	</delete>
+    <insert id="save" parameterType="com.southwind.entity.Account">
+		insert into account (name
+		)
+		values (#{name,jdbcType=VARCHAR}
+		)
+	</insert>
+
+
+    <update id="update" parameterType="com.southwind.entity.Account">
+		update account
+		set
+	name = #{name}
+		where id = #{id}
+	</update>
+
+
+</mapper>
